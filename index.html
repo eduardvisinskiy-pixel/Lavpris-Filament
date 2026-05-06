@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lavpris Filament</title>
+  <meta
+    name="description"
+    content="Find PLA, PLA++, PETG, ABS og andet filament til 3D-print hos Lavpris Filament."
+  />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+
+    <!-- LEFT -->
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Lavpris Filament logo">
+      <span>LavprisFilament</span>
+    </a>
+
+    <!-- CENTER -->
+    <nav class="nav">
+      <a href="#productsSection">Produkter</a>
+      <a href="https://www.lavprisfolie.dk/forside/om-os_12545.html" target="_blank" rel="noopener noreferrer">Om os</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+
+    <!-- RIGHT -->
+    <div class="header-action">
+      <a href="https://www.lavprisfolie.dk/" target="_blank" rel="noopener" class="header-btn">Gå til butik</a>
+    </div>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow">3D Print Filament</span>
+      <h1>Filament til 3D-print i høj kvalitet</h1>
+      <p>
+        Find PLA, PLA++, PETG, ABS og andre materialer til hobbybrug,
+        skole, værksted og professionel produktion.
+      </p>
+      <a href="#productsSection" class="hero-btn">Se produkter</a>
+    </div>
+
+    <div class="hero-card">
+      <h3>Fordele</h3>
+      <ul>
+        <li>Stort udvalg af filament</li>
+        <li>Nemt overblik over priser</li>
+        <li>Detaljeret produktinformation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="filters container" id="productsSection">
+  <div class="filters-top">
+    <button id="filterToggle" class="filter-toggle" type="button">
+      Filtre
+    </button>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Søg efter filament, farve eller materiale..."
+        autocomplete="off"
+      />
+    </div>
+  </div>
+
+  <div id="filtersPanel" class="filters-panel hidden">
+    <div class="filter-group">
+      <label for="materialFilter">Materiale</label>
+      <select id="materialFilter">
+        <option value="">Alle materialer</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="colorFilter">Farve</label>
+      <select id="colorFilter">
+        <option value="">Alle farver</option>
+      </select>
+    </div>
+
+    
+
+    <div class="filter-group">
+      <label for="sortFilter">Sortering</label>
+      <select id="sortFilter">
+        <option value="default">Standard</option>
+        <option value="price_low">Pris: lav til høj</option>
+        <option value="price_high">Pris: høj til lav</option>
+        <option value="name_az">Navn: A-Z</option>
+        <option value="name_za">Navn: Z-A</option>
+        <option value="stock_high">Lager: flest først</option>
+      </select>
+    </div>
+
+    <div class="filter-actions">
+      <button id="applyFilters" class="apply-filters" type="button">
+        Anvend filtre
+      </button>
+
+      <button id="resetFilters" class="reset-filters" type="button">
+        Nulstil
+      </button>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <div id="products" class="products-grid">
+    <p class="message">Indlæser produkter...</p>
+  </div>
+
+  <button id="loadMoreBtn" class="load-more-btn" type="button">
+    Vis flere produkter
+  </button>
+</main>
+
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button
+      class="modal-close"
+      id="closeModal"
+      type="button"
+      aria-label="Luk vindue"
+    >
+      &times;
+    </button>
+
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<section class="filament-guide container" id="filamentGuide">
+  <div class="guide-intro">
+    <span>Filament guide</span>
+
+    <h2>Filament til 3D-print – find det rigtige materiale hos LavprisFilament.dk</h2>
+
+    <p>
+      Hos LavprisFilament.dk tilbyder vi et stort udvalg af filament til 3D-printere,
+      så du altid kan finde det rette materiale til dine projekter. Valget af filament
+      er afgørende for både printkvalitet, holdbarhed og det visuelle udtryk.
+      Uanset om du er nybegynder eller erfaren maker, har vi de materialer, du har
+      brug for – fra populære PLA og PETG til mere avancerede typer som ABS, TPU
+      og specialfilamenter som PBT+.
+    </p>
+  </div>
+
+  <div class="guide-tabs">
+    <button class="guide-tab active" type="button" data-guide="pla">PLA</button>
+    <button class="guide-tab" type="button" data-guide="petg">PETG</button>
+    <button class="guide-tab" type="button" data-guide="abs">ABS</button>
+    <button class="guide-tab" type="button" data-guide="tpu">TPU</button>
+    <button class="guide-tab" type="button" data-guide="pbt">PBT+</button>
+  </div>
+
+  <div class="guide-panels">
+    <article class="guide-panel active" id="guide-pla" data-label="PLA">
+      <div class="guide-panel-content">
+        <h3>PLA Filament – det mest populære valg</h3>
+        <p>
+          PLA filament er blandt de mest anvendte materialer inden for 3D-print,
+          og det er især populært blandt begyndere. PLA er biologisk nedbrydeligt,
+          da det fremstilles af majsstivelse eller sukkerrør, og det er derfor et
+          miljøvenligt alternativ.
+        </p>
+        <p>
+          Fordelen ved PLA er, at det er utrolig nemt at printe med – det kræver
+          lave printtemperaturer og giver meget lidt vridning under printprocessen.
+          PLA er perfekt til dekorative genstande, modeller, prototyper og hobbyprojekter.
+        </p>
+      </div>
+    </article>
+
+    <article class="guide-panel" id="guide-petg" data-label="PETG">
+      <div class="guide-panel-content">
+        <h3>PETG Filament – styrke og fleksibilitet i ét</h3>
+        <p>
+          PETG filament er et godt kompromis mellem PLA og ABS. Det er stærkere og
+          mere holdbart end PLA, samtidig med at det er lettere at printe med end ABS.
+        </p>
+        <p>
+          PETG har høj slagstyrke og er mere varmebestandigt end PLA, hvilket gør det
+          velegnet til funktionelle emner og komponenter, der skal kunne holde til
+          daglig brug. Det kan også give delvist gennemsigtige prints.
+        </p>
+      </div>
+    </article>
+
+    <article class="guide-panel" id="guide-abs" data-label="ABS">
+      <div class="guide-panel-content">
+        <h3>ABS Filament – robust og varmebestandigt</h3>
+        <p>
+          ABS filament er kendt for sin styrke og varmebestandighed, hvilket gør det
+          populært til funktionelle dele og industrielle applikationer.
+        </p>
+        <p>
+          ABS kan tåle højere temperaturer end PLA og PETG, og det bruges ofte til
+          reservedele, huskomponenter eller produkter, der skal kunne klare slid og
+          daglig brug. Det kræver dog højere printtemperatur og helst lukket printkammer.
+        </p>
+      </div>
+    </article>
+
+    <article class="guide-panel" id="guide-tpu" data-label="TPU">
+      <div class="guide-panel-content">
+        <h3>TPU Filament – fleksibilitet og gummiagtige prints</h3>
+        <p>
+          TPU filament er et fleksibelt materiale, der giver gummiagtige emner.
+          TPU er særligt velegnet til specialdele, pakninger, beskyttelsescovere,
+          bøjelige beslag og kreative projekter.
+        </p>
+        <p>
+          TPU kombinerer elasticitet med slidstyrke, hvilket gør det anvendeligt til
+          mange funktionelle og unikke applikationer. Det kræver dog lidt erfaring,
+          da materialet er blødt og kan være vanskeligere at styre i ekstruderen.
+        </p>
+      </div>
+    </article>
+
+    <article class="guide-panel" id="guide-pbt" data-label="PBT+">
+      <div class="guide-panel-content">
+        <h3>Specialfilament – PBT+ til avancerede projekter</h3>
+        <p>
+          PBT+ er et specialfilament, der er udviklet til mere avancerede og krævende
+          applikationer. Det har høj kemisk resistens, god slagstyrke og fremragende
+          varmebestandighed.
+        </p>
+        <p>
+          PBT+ er velegnet til tekniske emner, maskindele og projekter, hvor materialets
+          egenskaber spiller en afgørende rolle. Det kræver typisk en mere avanceret
+          printeropsætning og erfaring for at opnå de bedste resultater.
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div class="guide-outro">
+    <h3>Hvilket filament skal du vælge?</h3>
+
+    <p>
+      Valget af filament afhænger af dit behov og dit projekt. Hvis du er nybegynder,
+      er PLA et godt sted at starte, da det er let at printe med og giver flotte resultater.
+      Skal du bruge emner, der skal holde til mekanisk slid eller højere temperaturer,
+      er PETG eller ABS et bedre valg. Ønsker du fleksible, gummiagtige dele, er TPU
+      ideelt, mens PBT+ er for dig, der vil arbejde med avancerede tekniske materialer.
+    </p>
+
+    <h3>Køb filament til 3D-printer hos LavprisFilament.dk</h3>
+
+    <p>
+      Bestil nemt og hurtigt dit 3D-printer filament online hos LavprisFilament.dk.
+      Vi leverer et bredt udvalg, der passer til både hobbybrugere og professionelle.
+      Uanset om du har brug for PLA, PETG, ABS, TPU eller specialfilamenter,
+      kan du finde det her på siden.
+    </p>
+  </div>
+</section>
+<section class="support-cta container" id="contact">
+  <div class="support-content">
+    <span>Spørgsmål eller hjælp?</span>
+    <h2>Har du brug for hjælp til at vælge det rigtige filament?</h2>
+  </div>
+
+  <div class="support-actions">
+    <a href="mailto:post@lavprisfolie.dk" class="support-btn primary">
+      Kontakt os
+    </a>
+
+    <a href="https://www.lavprisfolie.dk/" target="_blank" rel="noopener" class="support-btn secondary">
+      Gå til hovedsiden
+    </a>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner container">
+    <div class="footer-col">
+      <h3>Information</h3>
+
+      <a href="https://www.lavprisfolie.dk/forside/kontakt-os_12543.html" target="_blank" rel="noopener">Kontakt os</a>
+      <a href="https://www.lavprisfolie.dk/ofte-stillede-spoergsmaal_13200.html" target="_blank" rel="noopener">Ofte stillede spørgsmål - FAQ</a>
+      <a href="https://www.lavprisfolie.dk/forside/handelsbetingelser_12544.html" target="_blank" rel="noopener">Handelsbetingelser</a>
+      <a href="https://www.lavprisfolie.dk/forside/cookie--og-privatlivspolitik_13193.html" target="_blank" rel="noopener">Cookie- og privatlivspolitik</a>
+      <a href="https://www.lavprisfolie.dk/forside/om-os_12545.html" target="_blank" rel="noopener">Om os</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Min konto</h3>
+
+      <a href="https://www.lavprisfolie.dk/?id=12649&original=12643" target="_blank" rel="noopener">Min konto</a>
+      <a href="https://www.lavprisfolie.dk/?id=12649&original=12643" target="_blank" rel="noopener">Mine ordrer</a>
+      <a href="https://www.lavprisfolie.dk/?id=12649&original=12643" target="_blank" rel="noopener">Mine oplysninger</a>
+    </div>
+
+    <div class="footer-col footer-info">
+      <h3>Butiksinformation</h3>
+
+      <p>
+        <strong>LavprisFilament.dk</strong><br>
+        Holsted Park 15<br>
+        4700 Næstved
+      </p>
+
+      <p>
+        <strong>Afhentningsadresse:</strong><br>
+        Østre Fælledvej 16<br>
+        9400 Nørresundby
+      </p>
+
+      <p><strong>CVR: 31480191</strong></p>
+
+      <p>
+        <strong>Ring til os nu:</strong><br>
+        <a href="tel:+45 32 27 42 43">+45 32 27 42 43</a>
+      </p>
+
+      <p>
+        <strong>E-mail:</strong><br>
+        <a href="mailto:post@lavprisfolie.dk">post@lavprisfolie.dk</a>
+      </p>
+
+      <p>
+        <strong>Facebook:</strong><br>
+        <a href="https://www.facebook.com/lavprisfolie.dk" target="_blank" rel="noopener">
+          Følg os på Facebook
+        </a>
+      </p>
+
+      <div class="payment-icons">
+        <span>Dankort</span>
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>PayPal</span>
+        <span>Klarna</span>
+        <span>EAN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 LavprisFilament.dk
+  </div>
+</footer>
+</body>
+</html>
