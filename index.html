@@ -21,6 +21,9 @@
 
   <link rel="canonical" href="https://lavprisfilament.dk/" />
 
+  <link rel="preconnect" href="https://www.datamarked.dk">
+  <link rel="dns-prefetch" href="https://www.datamarked.dk">
+
   <meta property="og:type" content="website" />
   <meta property="og:title" content="3D Printer Filament | LavprisFilament.dk" />
   <meta
@@ -36,7 +39,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="preload"
+  href="style.css"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+<noscript>
+  <link rel="stylesheet" href="style.css">
+</noscript>
 </head>
 <body>
 
