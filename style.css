@@ -534,7 +534,6 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 26px;
-  min-height: 1200px;
   margin-bottom: 30px;
 }
 
@@ -554,8 +553,7 @@ body {
 }
 
 .product-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 210px;
   background: #f1f5f9;
   border-radius: 18px;
   display: flex;
@@ -566,11 +564,11 @@ body {
 }
 
 .product-image img {
-  width: 90%;
-  height: 90%;
+  max-width: 90%;
+  max-height: 180px;
   object-fit: contain;
-  display: block;
 }
+
 .product-card h3 {
   font-size: 17px;
   line-height: 1.35;
@@ -755,12 +753,6 @@ body {
 
 .guide-panel {
   display: none;
-}
-
-.guide-panel-image {
-  width: 100%;
-  min-height: 240px;
-  height: 240px;
 }
 
 .guide-panel.active {
@@ -1097,23 +1089,17 @@ body {
 }
 
 .modal-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
   background: #f1f5f9;
   border-radius: 20px;
   padding: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   margin-bottom: 28px;
-  overflow: hidden;
 }
 
 .modal-image img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 430px;
   object-fit: contain;
-  display: block;
 }
 
 .modal-details h3 {
@@ -1243,6 +1229,9 @@ body {
     padding: 16px;
   }
 
+  .product-image {
+    height: 230px;
+  }
 
   .product-card h3 {
     min-height: auto;
@@ -1281,7 +1270,9 @@ body {
     padding-right: 36px;
   }
 
- 
+  .modal-image img {
+    max-height: 260px;
+  }
 
   .modal-details h3 {
     font-size: 22px;
